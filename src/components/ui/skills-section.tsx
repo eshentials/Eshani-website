@@ -211,10 +211,10 @@ export function SkillsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4 font-serif">SKILLS WORD SEARCH</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4 font-serif">SKILLS</h2>
           <div className="w-16 h-1 bg-black mx-auto mb-4"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-serif">
-            Click on the clues below to highlight related skills in the puzzle
+            Click on the clues below to <span className="bg-yellow-300 px-1">highlight</span> related skills in the puzzle
           </p>
         </div>
 
@@ -271,7 +271,7 @@ export function SkillsSection() {
           <div className="bg-gray-100 p-6 border border-black max-w-2xl mx-auto">
             <h4 className="text-lg font-bold text-black mb-2 font-serif">HOW TO PLAY</h4>
             <p className="text-sm text-gray-700 font-serif">
-              Click on any clue above to highlight all related skills in the word search puzzle. 
+              Click on any clue above to <span className="bg-yellow-300 px-1">highlight</span> all related skills in the word search puzzle. 
               Words can be found horizontally, vertically, or diagonally.
             </p>
             {selectedCategory && (
