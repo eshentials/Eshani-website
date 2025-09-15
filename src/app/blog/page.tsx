@@ -155,7 +155,7 @@ export default function BlogPage() {
             <div className="text-sm font-serif uppercase tracking-wider">ISSUE, DECEMBER</div>
             <div className="text-sm font-serif uppercase tracking-wider">BLOG</div>
           </div>
-          <h1 className="text-6xl md:text-8xl font-serif font-bold text-black text-center mb-4">
+          <h1 className="text-6xl md:text-6xl font-serif font-bold text-black text-center mb-4">
             BLOG
           </h1>
           <div className="border-t border-black"></div>
