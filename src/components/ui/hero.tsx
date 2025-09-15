@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="relative min-h-screen w-full group" style={{backgroundColor: '#f7f6f0'}}>
+    <section className="relative py-16 w-full group" style={{backgroundColor: '#f7f6f0'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         {/* Main Title Section */}
@@ -17,54 +17,25 @@ export function Hero() {
         {/* Main Content Grid - Vintage Flyer Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           
-          {/* Left Column - Large Featured Image */}
+          {/* Left Column - Author Photo (Smaller) */}
           <div className="lg:col-span-2">
-            <div className="w-full aspect-square bg-white border-2 border-black flex items-center justify-center relative overflow-hidden">
+            <div className="w-80 h-80 mx-auto bg-white border-2 border-black flex items-center justify-center relative overflow-hidden">
               <img 
-                src="/ch2.jpg" 
-                alt="Professional work showcase" 
-                className="w-full h-full object-cover"
+                src="/pfp.png" 
+                alt="Eshani Parulekar" 
+                className="w-full h-full object-cover scale-125 -translate-x-2 grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
               />
-            </div>
-            
-            {/* Image Caption */}
-            <div className="mt-4">
-              <h3 className="text-xl font-bold text-black font-serif mb-2">
-                Welcome to my website
-              </h3>
-              <div className="flex items-center space-x-4 text-sm font-serif text-black mb-4">
-                <span className="font-bold">ESHANI PARULEKAR</span>
-                <div className="w-px h-4 bg-black"></div>
-                <span>Computer Science and Artificial Intelligence Major</span>
-              </div>
             </div>
           </div>
 
-          {/* Right Column - Author Photo and Text */}
+          {/* Right Column - Text Content */}
           <div className="lg:col-span-3 space-y-6">
             
-            {/* Text Section with Author Photo */}
+            {/* Text Section */}
             <div className="space-y-4">
-              <div className="flex items-center justify-between gap-2">
-                <h4 className="text-2xl font-bold text-black font-serif">
-                  ABOUT ME
-                </h4>
-                
-                {/* Author Photo */}
-                <div className="w-56 h-56 bg-white border-2 border-black rounded-full flex items-center justify-center relative overflow-hidden">
-                  <img 
-                    src="/pfp.png" 
-                    alt="Eshani Parulekar" 
-                    className="w-full h-full object-cover rounded-full scale-125 -translate-x-2 grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
-                  />
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-4 text-sm font-serif text-black mb-4">
-                <span className="font-bold">ESHANI PARULEKAR</span>
-                <div className="w-px h-4 bg-black"></div>
-                <span>Computer Science and Artificial Intelligence Major</span>
-              </div>
+              <h4 className="text-2xl font-bold text-black font-serif">
+                ABOUT ME
+              </h4>
               
               <div className="text-sm text-black leading-relaxed font-serif space-y-3">
                 <p>

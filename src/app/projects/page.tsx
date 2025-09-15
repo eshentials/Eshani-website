@@ -53,16 +53,18 @@ export default function ProjectsPage() {
           <div className="space-y-0">
             
             {/* Hero Project: Multimodal IPO Binary Classification - Full Width Top */}
-            <div className="border-b border-black">
+            <div className="border-b border-black group">
               <div className="grid grid-cols-12 gap-0 min-h-[500px]">
                 {/* Left Content */}
                 <div className="col-span-8 relative" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
                   <div className="px-8 space-y-6">
-                    <h2 className="text-3xl font-serif font-bold text-black relative group cursor-pointer">
-                      <span className="relative z-10">
-                        {mainProjects[4]?.title || "Multimodal IPO Binary Classification"}
+                    <h2 className="text-3xl font-serif font-bold text-black">
+                      <span className="relative cursor-pointer inline-block">
+                        <span className="relative z-10">
+                          {mainProjects[4]?.title || "Multimodal IPO Binary Classification"}
+                        </span>
+                        <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                       </span>
-                      <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                     </h2>
                     <div className="space-y-3 text-sm font-serif text-black">
                       <p>• {mainProjects[4]?.duration || "Jan 2025 – May 2025"}</p>
@@ -88,7 +90,7 @@ export default function ProjectsPage() {
                   <div className="absolute right-0 top-4 bottom-4 bg-black" style={{ width: "0.5px" }}></div>
                 </div>
                 {/* Right Image */}
-                <div className="col-span-4 bg-gray-100 flex items-center justify-center group" style={{paddingTop: '1rem', paddingBottom: '1rem', paddingLeft: '2rem', paddingRight: '2rem'}}>
+                <div className="col-span-4 bg-gray-100 flex items-center justify-center" style={{paddingTop: '1rem', paddingBottom: '1rem', paddingLeft: '2rem', paddingRight: '2rem'}}>
                   {mainProjects[4]?.image ? (
                     <img 
                       src={mainProjects[4].image.replace('public/', '/')} 
@@ -112,9 +114,9 @@ export default function ProjectsPage() {
             <div className="grid grid-cols-12 gap-0 border-b border-black min-h-[500px]">
              
               {/* Project 1: Gosec - Middle Column (Wide) */}
-              <div className="col-span-6 relative" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
+              <div className="col-span-6 relative group" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
                 <div className="px-6 h-full">
-                  <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4 overflow-hidden group">
+                  <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4 overflow-hidden">
                     {mainProjects[0]?.image ? (
                       <img 
                         src={mainProjects[0].image.replace('public/', '/')} 
@@ -130,11 +132,13 @@ export default function ProjectsPage() {
                       </div>
                     )}
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-black mb-3 relative group cursor-pointer">
-                    <span className="relative z-10">
-                      {mainProjects[0]?.title || "Golang Security Analysis Enhancements"}
+                  <h3 className="text-lg font-serif font-bold text-black mb-3">
+                    <span className="relative cursor-pointer inline-block">
+                      <span className="relative z-10">
+                        {mainProjects[0]?.title || "Golang Security Analysis Enhancements"}
+                      </span>
+                      <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                     </span>
-                    <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                   </h3>
                   <p className="text-xs font-serif text-black leading-relaxed mb-4">
                     {mainProjects[0]?.description || "Contributed to Gosec, Golang's static analysis tool, by strengthening detection rules with refined file path taint checks (G304) and expanded SQL injection checks (G202). Fixed nil-context crashes and added coverage for edge cases."}
@@ -152,9 +156,9 @@ export default function ProjectsPage() {
               </div>
 
               {/* Project 2: LEAP Website - Left Column */}
-              <div className="col-span-3 relative" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
+              <div className="col-span-3 relative group" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
                 <div className="px-6 h-full">
-                  <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4 overflow-hidden group">
+                  <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4 overflow-hidden">
                     {mainProjects[1]?.image ? (
                       <img 
                         src={mainProjects[1].image.replace('public/', '/')} 
@@ -170,11 +174,13 @@ export default function ProjectsPage() {
                       </div>
                     )}
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-black mb-3 relative group cursor-pointer">
-                    <span className="relative z-10">
-                      {mainProjects[1]?.title || "Website Development - LEAP AI Club"}
+                  <h3 className="text-lg font-serif font-bold text-black mb-3">
+                    <span className="relative cursor-pointer inline-block">
+                      <span className="relative z-10">
+                        {mainProjects[1]?.title || "Website Development - LEAP AI Club"}
+                      </span>
+                      <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                     </span>
-                    <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                   </h3>
                   <p className="text-xs font-serif text-black leading-relaxed mb-4">
                     {mainProjects[1]?.description || "Designed and coded the website for the LEAP Artificial Intelligence club."}
@@ -192,9 +198,9 @@ export default function ProjectsPage() {
               </div>
 
               {/* Project 3: Energy Monitoring - Right Column */}
-              <div className="col-span-3" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
+              <div className="col-span-3 group" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
                 <div className="px-6 h-full">
-                  <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4 overflow-hidden group">
+                  <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4 overflow-hidden">
                     {mainProjects[2]?.image ? (
                       <img 
                         src={mainProjects[2].image.replace('public/', '/')} 
@@ -210,11 +216,13 @@ export default function ProjectsPage() {
                       </div>
                     )}
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-black mb-3 relative group cursor-pointer">
-                    <span className="relative z-10">
-                      {mainProjects[2]?.title || "Energy Monitoring System"}
+                  <h3 className="text-lg font-serif font-bold text-black mb-3">
+                    <span className="relative cursor-pointer inline-block">
+                      <span className="relative z-10">
+                        {mainProjects[2]?.title || "Energy Monitoring System"}
+                      </span>
+                      <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                     </span>
-                    <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                   </h3>
                   <p className="text-xs font-serif text-black leading-relaxed mb-4">
                     {mainProjects[2]?.description || "Built a home energy monitoring system using time-series data from smart sockets and thermal regulators. Developed WhatsApp-based nudges and cost-prediction models to track and influence energy consumption behavior."}
@@ -229,9 +237,9 @@ export default function ProjectsPage() {
             {/* Row 3: Three Projects */}
             <div className="grid grid-cols-12 gap-0 min-h-[500px]">
               {/* Project 4: Owlett - Left Column */}
-              <div className="col-span-3 relative" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
+              <div className="col-span-3 relative group" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
                 <div className="px-6 h-full">
-                  <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4 overflow-hidden group">
+                  <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4 overflow-hidden">
                     {mainProjects[3]?.image ? (
                       <img 
                         src={mainProjects[3].image.replace('public/', '/')} 
@@ -247,11 +255,13 @@ export default function ProjectsPage() {
                       </div>
                     )}
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-black mb-3 relative group cursor-pointer">
-                    <span className="relative z-10">
-                      {mainProjects[3]?.title || "Owlett"}
+                  <h3 className="text-lg font-serif font-bold text-black mb-3">
+                    <span className="relative cursor-pointer inline-block">
+                      <span className="relative z-10">
+                        {mainProjects[3]?.title || "Owlett"}
+                      </span>
+                      <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                     </span>
-                    <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                   </h3>
                   <p className="text-xs font-serif text-black leading-relaxed mb-4">
                     {mainProjects[3]?.description || "Co-founded a website that simplified media articles in politics, economics, business, and social issues for youth audiences. Second runner-up in ENpower's India Future Tycoons Season 1. Student-led initiative with 20k+ views, 350+ articles, and 9 student writers."}
@@ -266,9 +276,9 @@ export default function ProjectsPage() {
               </div>
 
               {/* Project 5: Dark Pattern Detection - Middle Column (Wide) */}
-              <div className="col-span-6 relative" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
+              <div className="col-span-6 relative group" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
                 <div className="px-6 h-full">
-                  <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4 overflow-hidden group">
+                  <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4 overflow-hidden">
                     {mainProjects[5]?.image ? (
                       <img 
                         src={mainProjects[5].image.replace('public/', '/')} 
@@ -284,11 +294,13 @@ export default function ProjectsPage() {
                       </div>
                     )}
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-black mb-3 relative group cursor-pointer">
-                    <span className="relative z-10">
-                      {mainProjects[5]?.title || "Dark Pattern Detection Tool"}
+                  <h3 className="text-lg font-serif font-bold text-black mb-3">
+                    <span className="relative cursor-pointer inline-block">
+                      <span className="relative z-10">
+                        {mainProjects[5]?.title || "Dark Pattern Detection Tool"}
+                      </span>
+                      <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                     </span>
-                    <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                   </h3>
                   <p className="text-xs font-serif text-black leading-relaxed mb-4">
                     {mainProjects[5]?.description || "Designed a dark pattern detection tool to identify false urgency on websites. Used a Gemini API + Selenium scraper to extract DOM contents and features, continuing as a research project on temporal analysis of dark patterns."}
@@ -303,7 +315,7 @@ export default function ProjectsPage() {
               </div>
 
               {/* Project 6: RegExtract */}
-              <div className="col-span-3" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
+              <div className="col-span-3 group" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
                 <div className="px-6 h-full">
                   <div className="w-full h-64 bg-gray-100 flex items-center justify-center mb-4">
                     <div className="text-center">
@@ -313,11 +325,13 @@ export default function ProjectsPage() {
                       <p className="text-xs font-serif text-gray-600">Regulatory Tool</p>
                     </div>
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-black mb-3 relative group cursor-pointer">
-                    <span className="relative z-10">
-                      RegExtract
+                  <h3 className="text-lg font-serif font-bold text-black mb-3">
+                    <span className="relative cursor-pointer inline-block">
+                      <span className="relative z-10">
+                        RegExtract
+                      </span>
+                      <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                     </span>
-                    <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                   </h3>
                   <p className="text-xs font-serif text-black leading-relaxed mb-4">
                     Automated solution to check targeted regulatory websites for changes in policy. Used DFS to scrape websites for PDFs, download and parse them, then compared with a baseline template using Gemini API for summarization.
@@ -341,9 +355,9 @@ export default function ProjectsPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {additionalProjects.map((project, index) => (
-              <div key={index} className="bg-white border border-black p-6 hover:shadow-lg transition-shadow">
+              <div key={index} className="bg-white border border-black p-6 hover:shadow-lg transition-shadow group">
                 {project.image && (
-                  <div className="w-full h-48 bg-gray-100 mb-4 overflow-hidden group">
+                  <div className="w-full h-48 bg-gray-100 mb-4 overflow-hidden">
                     <img 
                       src={project.image.replace('public/', '/')} 
                       alt={project.title}
@@ -351,11 +365,13 @@ export default function ProjectsPage() {
                     />
                   </div>
                 )}
-                <h3 className="text-lg font-serif font-bold text-black mb-3 relative group cursor-pointer">
-                  <span className="relative z-10">
-                    {project.title}
+                <h3 className="text-lg font-serif font-bold text-black mb-3">
+                  <span className="relative cursor-pointer inline-block">
+                    <span className="relative z-10">
+                      {project.title}
+                    </span>
+                    <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                   </span>
-                  <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
                 </h3>
                 <p className="text-sm font-serif text-gray-600 mb-2">
                   {project.duration} • {project.affliatedOrganisation}
