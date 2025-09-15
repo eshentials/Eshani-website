@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Linkedin, Github, MessageCircle, Send, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
+import { Footer } from "@/components/ui/footer";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -45,286 +46,238 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="pt-24">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-900 via-red-800 to-red-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-serif font-bold leading-tight mb-6">
-              GET IN TOUCH
-            </h1>
-            <p className="text-xl md:text-2xl font-light max-w-3xl mx-auto">
-              Ready to start a project or just want to say hello? I'd love to hear from you. 
-              Let's discuss how we can work together to bring your ideas to life.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section className="py-20 bg-amber-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Left Column - Contact Info */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
-                  Let's Connect
-                </h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  I'm always excited to hear about new projects and opportunities. 
-                  Whether you have a specific project in mind or just want to explore 
-                  possibilities, I'm here to help.
-                </p>
-              </div>
-
-              {/* Contact Methods */}
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-red-100 rounded-xl">
-                    <Mail className="w-6 h-6 text-red-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">hello@eshani.dev</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-blue-100 rounded-xl">
-                    <Linkedin className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">LinkedIn</h3>
-                    <a 
-                      href="https://www.linkedin.com/in/eshaniparulekar" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-700 transition-colors"
-                    >
-                      Connect on LinkedIn
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-gray-100 rounded-xl">
-                    <Github className="w-6 h-6 text-gray-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">GitHub</h3>
-                    <a 
-                      href="https://github.com/eshentials" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-gray-700 transition-colors"
-                    >
-                      View my work
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-green-100 rounded-xl">
-                    <MessageCircle className="w-6 h-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">WhatsApp</h3>
-                    <p className="text-gray-600">Drop a message with your email</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Response Time */}
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <h3 className="font-semibold text-gray-900 mb-2">Response Time</h3>
-                <p className="text-gray-600 text-sm">
-                  I typically respond to emails within 24 hours during business days. 
-                  For urgent matters, feel free to reach out on LinkedIn or WhatsApp.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column - Contact Form */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              {isSubmitted ? (
-                <div className="text-center py-12">
-                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
-                  <p className="text-gray-600">
-                    Thank you for reaching out. I'll get back to you soon!
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors"
-                      placeholder="Your full name"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors"
-                      placeholder="What's this about?"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors resize-none"
-                      placeholder="Tell me about your project or how I can help..."
-                    />
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="flex-1 bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-6 rounded-lg font-medium hover:from-red-700 hover:to-red-800 transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                    >
-                      {isSubmitting ? (
-                        <span className="flex items-center justify-center">
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Sending...
-                        </span>
-                      ) : (
-                        <span className="flex items-center justify-center">
-                          <Send className="w-5 h-5 mr-2" />
-                          Send Message
-                        </span>
-                      )}
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={handleWhatsApp}
-                      disabled={!formData.email}
-                      className="flex-1 bg-green-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-green-700 transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                    >
-                      <MessageCircle className="w-5 h-5 mr-2 inline" />
-                      WhatsApp
-                    </button>
-                  </div>
-
-                  <p className="text-xs text-gray-500 text-center">
-                    * Required fields. By submitting this form, you agree to be contacted via email.
-                  </p>
-                </form>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Contact Options */}
-      <section className="py-20 bg-white">
+    <main className="min-h-screen" style={{backgroundColor: '#f7f6f0'}}>
+      {/* Newspaper Header */}
+      <section className="py-8 border-b-2 border-black" style={{backgroundColor: '#f7f6f0'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
-              Other Ways to Connect
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Prefer a different way to get in touch? Here are some additional options.
-            </p>
+          <div className="flex justify-between items-center mb-4">
+            <div className="text-sm font-serif uppercase tracking-wider">ISSUE, DECEMBER</div>
+            <div className="text-sm font-serif uppercase tracking-wider">HELP WANTED</div>
           </div>
+          <h1 className="text-6xl md:text-8xl font-serif font-bold text-black text-center mb-4">
+            HELP WANTED
+          </h1>
+          <div className="border-t border-black"></div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Email Direct */}
-            <div className="text-center p-8 bg-red-50 rounded-2xl border border-red-100">
-              <Mail className="w-16 h-16 text-red-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Direct Email</h3>
-              <p className="text-gray-600 mb-4">
-                Send me an email directly for quick questions or project inquiries.
-              </p>
-              <a 
-                href="mailto:hello@eshani.dev"
-                className="inline-block bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors"
-              >
-                Send Email
-              </a>
+      {/* Help Wanted Advertisement - Traditional Newspaper Style */}
+      <section className="py-12" style={{backgroundColor: '#f7f6f0'}}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative border-2 border-black" style={{backgroundColor: '#f7f6f0'}}>
+            {/* Thumbtack */}
+            <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
+              <div className="w-4 h-4 bg-red-600 rounded-full border-2 border-red-800"></div>
+            </div>
+            
+            {/* Decorative Stars */}
+            <div className="absolute top-4 left-8">
+              <div className="w-3 h-3 bg-black transform rotate-45"></div>
+            </div>
+            <div className="absolute top-4 right-8">
+              <div className="w-3 h-3 bg-black transform rotate-45"></div>
             </div>
 
-            {/* LinkedIn */}
-            <div className="text-center p-8 bg-blue-50 rounded-2xl border border-blue-100">
-              <Linkedin className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">LinkedIn</h3>
-              <p className="text-gray-600 mb-4">
-                Connect with me professionally and stay updated with my latest work.
-              </p>
-              <a 
-                href="https://www.linkedin.com/in/eshaniparulekar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-              >
-                Connect
-              </a>
-            </div>
+            {/* Main Content */}
+            <div className="p-8" style={{backgroundColor: '#f7f6f0'}}>
+              {/* Help Wanted Header */}
+              <div className="text-center mb-8">
+                <div className="bg-black text-white px-8 py-4 inline-block mb-4">
+                  <h2 className="text-4xl md:text-5xl font-bold font-serif">HELP WANTED</h2>
+                </div>
+                <div className="w-full h-1 bg-black mb-4"></div>
+                <p className="text-lg font-serif text-black font-bold">FULL-STACK DEVELOPER</p>
+                <p className="text-sm font-serif text-gray-600">IMMEDIATE START AVAILABLE</p>
+              </div>
 
-            {/* GitHub */}
-            <div className="text-center p-8 bg-gray-50 rounded-2xl border border-gray-100">
-              <Github className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">GitHub</h3>
-              <p className="text-gray-600 mb-4">
-                Explore my open-source projects and see my coding style in action.
-              </p>
-              <a 
-                href="https://github.com/eshentials"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors"
-              >
-                View Profile
-              </a>
+              {/* Job Description in Newspaper Style */}
+              <div className="space-y-6">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl md:text-3xl font-bold text-black mb-4 font-serif">
+                    SEEKING FREELANCE OPPORTUNITIES
+                  </h3>
+                  <p className="text-lg text-gray-700 mb-6 font-serif">
+                    Experienced developer available for immediate projects
+                  </p>
+                </div>
+
+                {/* Two Column Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  {/* Left Column - Job Details */}
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-bold text-black font-serif border-b border-black pb-2">
+                      POSITION DETAILS
+                    </h4>
+                    <div className="space-y-3 text-sm font-serif">
+                      <p><span className="font-bold">TYPE:</span> Freelance/Contract</p>
+                      <p><span className="font-bold">LOCATION:</span> Remote Available</p>
+                      <p><span className="font-bold">DURATION:</span> Flexible</p>
+                      <p><span className="font-bold">RATE:</span> Competitive</p>
+                      <p><span className="font-bold">START DATE:</span> Immediate</p>
+                    </div>
+                  </div>
+
+                  {/* Right Column - Requirements */}
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-bold text-black font-serif border-b border-black pb-2">
+                      WHAT I OFFER
+                    </h4>
+                    <div className="space-y-2 text-sm font-serif">
+                      <div className="flex items-start">
+                        <span className="w-2 h-2 bg-black mr-3 mt-2 flex-shrink-0"></span>
+                        <span>Modern web development (React, Next.js)</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="w-2 h-2 bg-black mr-3 mt-2 flex-shrink-0"></span>
+                        <span>Full-stack solutions with databases</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="w-2 h-2 bg-black mr-3 mt-2 flex-shrink-0"></span>
+                        <span>Cloud deployment and DevOps</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="w-2 h-2 bg-black mr-3 mt-2 flex-shrink-0"></span>
+                        <span>Mobile app development</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="w-2 h-2 bg-black mr-3 mt-2 flex-shrink-0"></span>
+                        <span>UI/UX design and implementation</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="w-2 h-2 bg-black mr-3 mt-2 flex-shrink-0"></span>
+                        <span>24/7 communication and support</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Contact Form - Styled as Application */}
+                <div className="border-2 border-black p-6" style={{backgroundColor: '#f7f6f0'}}>
+                  <h4 className="text-2xl font-bold text-black mb-6 text-center font-serif">APPLY NOW</h4>
+                  
+                  {isSubmitted ? (
+                    <div className="text-center py-8">
+                      <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
+                      <h5 className="text-xl font-bold text-black mb-2 font-serif">APPLICATION RECEIVED!</h5>
+                      <p className="text-gray-700 font-serif">
+                        Thank you for your interest. I&apos;ll get back to you within 24 hours.
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-bold text-black mb-2 font-serif">
+                            YOUR NAME *
+                          </label>
+                          <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full px-4 py-3 border-2 border-black bg-white text-black focus:outline-none font-serif"
+                            placeholder="Enter your full name"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-bold text-black mb-2 font-serif">
+                            EMAIL ADDRESS *
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full px-4 py-3 border-2 border-black bg-white text-black focus:outline-none font-serif"
+                            placeholder="your@email.com"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-bold text-black mb-2 font-serif">
+                          PROJECT TYPE *
+                        </label>
+                        <input
+                          type="text"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full px-4 py-3 border-2 border-black bg-white text-black focus:outline-none font-serif"
+                          placeholder="Web Development, Mobile App, etc."
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-bold text-black mb-2 font-serif">
+                          PROJECT DESCRIPTION *
+                        </label>
+                        <textarea
+                          name="message"
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          required
+                          rows={5}
+                          className="w-full px-4 py-3 border-2 border-black bg-white text-black focus:outline-none resize-none font-serif"
+                          placeholder="Describe your project requirements, timeline, and budget..."
+                        />
+                      </div>
+                      
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="flex-1 bg-black text-white py-4 px-8 font-bold hover:bg-gray-800 transition-colors disabled:opacity-50 font-serif text-lg"
+                        >
+                          {isSubmitting ? "SUBMITTING..." : "SUBMIT APPLICATION"}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleWhatsApp}
+                          disabled={!formData.email}
+                          className="flex-1 bg-green-600 text-white py-4 px-8 font-bold hover:bg-green-700 transition-colors disabled:opacity-50 font-serif text-lg"
+                        >
+                          WHATSAPP
+                        </button>
+                      </div>
+                    </form>
+                  )}
+                </div>
+
+                {/* Contact Information - Newspaper Style */}
+                <div className="text-center space-y-4 border-t border-black pt-6">
+                  <h4 className="text-lg font-bold text-black font-serif">CONTACT INFORMATION</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm font-serif">
+                    <div>
+                      <p className="font-bold">EMAIL</p>
+                      <p>hello@eshani.dev</p>
+                    </div>
+                    <div>
+                      <p className="font-bold">LINKEDIN</p>
+                      <a href="https://www.linkedin.com/in/eshaniparulekar" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        /in/eshaniparulekar
+                      </a>
+                    </div>
+                    <div>
+                      <p className="font-bold">GITHUB</p>
+                      <a href="https://github.com/eshentials" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:underline">
+                        /eshentials
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500 font-serif">
+                    Response time: Within 24 hours | Available for immediate start
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

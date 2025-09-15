@@ -1,51 +1,111 @@
 export function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen flex items-center justify-center pt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Background decoration */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div className="absolute top-40 left-40 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+    <section className="relative min-h-screen" style={{backgroundColor: '#f7f6f0'}}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        {/* Main Title Section */}
+        <div className="text-center mb-8">
+          <h1 className="text-5xl md:text-7xl font-bold text-black mb-4 font-serif uppercase tracking-wider">
+            THE DEVELOPER
+          </h1>
+          <div className="w-full h-px bg-black mb-4"></div>
+          <h2 className="text-lg md:text-xl font-serif text-black uppercase tracking-wide">
+            FULL-STACK DEVELOPER AVAILABLE FOR IMMEDIATE HIRE
+          </h2>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Eshani
-            </span>
-          </h1>
+        {/* Main Content Grid - Vintage Flyer Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            A passionate developer and creative problem solver. I build beautiful, 
-            functional applications that make a difference.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
-              View My Work
-            </button>
-            <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:border-gray-400 hover:bg-gray-50 transform hover:scale-105 transition-all duration-200">
-              Get In Touch
-            </button>
+          {/* Left Column - Large Featured Image */}
+          <div className="lg:col-span-2">
+            <div className="w-full h-96 bg-white border-2 border-black flex items-center justify-center relative overflow-hidden">
+              <img 
+                src="/ch2.jpg" 
+                alt="Professional work showcase" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {/* Image Caption */}
+            <div className="mt-4">
+              <h3 className="text-xl font-bold text-black font-serif mb-2">
+                The story headline and picture
+              </h3>
+              <div className="flex items-center space-x-4 text-sm font-serif text-black mb-4">
+                <span className="font-bold">ESHANI PARULEKAR</span>
+                <div className="w-px h-4 bg-black"></div>
+                <span>FULL-STACK DEVELOPER</span>
+              </div>
+            </div>
           </div>
-          
-          {/* Stats */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">5+</div>
-              <div className="text-gray-600">Years Experience</div>
+
+          {/* Right Column - Smaller Image and Text */}
+          <div className="space-y-6">
+            
+            {/* Smaller Image */}
+            <div className="w-full">
+              <div className="w-full h-48 bg-white border-2 border-black flex items-center justify-center relative overflow-hidden">
+                <img 
+                  src="/kk.jpg" 
+                  alt="Developer portrait" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Image Caption */}
+              <div className="mt-2 text-xs text-black font-serif">
+                <span className="font-bold">PICTURE CAPTION</span>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">50+</div>
-              <div className="text-gray-600">Projects Completed</div>
+
+            {/* Text Section */}
+            <div className="space-y-4">
+              <h4 className="text-lg font-bold text-black font-serif">
+                Related title
+              </h4>
+              
+              <div className="flex items-center space-x-4 text-sm font-serif text-black mb-4">
+                <span className="font-bold">ESHANI PARULEKAR</span>
+                <div className="w-px h-4 bg-black"></div>
+                <span>FULL-STACK DEVELOPER</span>
+              </div>
+              
+              <div className="text-sm text-black leading-relaxed font-serif space-y-3">
+                <p>
+                  Experienced full-stack developer specializing in modern web technologies, 
+                  creating innovative solutions that bridge design and functionality. With expertise 
+                  in React, Next.js, and cloud technologies, I build scalable applications that 
+                  deliver exceptional user experiences.
+                </p>
+                <p>
+                  From concept to deployment, I handle every aspect of web development including 
+                  frontend design, backend architecture, database optimization, and cloud infrastructure. 
+                  My approach combines technical excellence with creative problem-solving to deliver 
+                  solutions that exceed expectations.
+                </p>
+                <p>
+                  Available for freelance projects, consulting, and full-time opportunities. 
+                  Let's discuss how we can work together to bring your ideas to life.
+                </p>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">100%</div>
-              <div className="text-gray-600">Client Satisfaction</div>
-            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-black pt-6">
+          <div className="text-center">
+            <h4 className="text-sm font-bold text-black mb-2 font-serif uppercase">EXPERIENCE</h4>
+            <p className="text-sm text-black font-serif">5+ Years Development</p>
+          </div>
+          <div className="text-center">
+            <h4 className="text-sm font-bold text-black mb-2 font-serif uppercase">LOCATION</h4>
+            <p className="text-sm text-black font-serif">Available Worldwide</p>
+          </div>
+          <div className="text-center">
+            <h4 className="text-sm font-bold text-black mb-2 font-serif uppercase">STATUS</h4>
+            <p className="text-sm text-black font-serif">Available for Hire</p>
           </div>
         </div>
       </div>

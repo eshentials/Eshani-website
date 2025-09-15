@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ExternalLink, Calendar, Clock, ArrowRight, BookOpen, Heart, Code, Cake, PawPrint } from "lucide-react";
+import { ExternalLink, BookOpen } from "lucide-react";
+import { Footer } from "@/components/ui/footer";
 
 interface BlogPost {
   id: string;
@@ -29,39 +30,6 @@ interface MediumRSSItem {
 // Medium RSS feed URL
 const MEDIUM_RSS_URL = "https://medium.com/@eshani.parulekar";
 
-const getCategoryIcon = (category: string) => {
-  switch (category) {
-    case "Kathak":
-      return <Heart className="w-4 h-4" />;
-    case "Baker":
-      return <Cake className="w-4 h-4" />;
-    case "Enthusiastic Reader":
-      return <BookOpen className="w-4 h-4" />;
-    case "Dog Mom":
-      return <PawPrint className="w-4 h-4" />;
-    case "Techie":
-      return <Code className="w-4 h-4" />;
-    default:
-      return <BookOpen className="w-4 h-4" />;
-  }
-};
-
-const getCategoryColor = (category: string) => {
-  switch (category) {
-    case "Kathak":
-      return "bg-red-100 text-red-800 border-red-200";
-    case "Baker":
-      return "bg-amber-100 text-amber-800 border-amber-200";
-    case "Enthusiastic Reader":
-      return "bg-blue-100 text-blue-800 border-blue-200";
-    case "Dog Mom":
-      return "bg-green-100 text-green-800 border-green-200";
-    case "Techie":
-      return "bg-purple-100 text-purple-800 border-purple-200";
-    default:
-      return "bg-gray-100 text-gray-800 border-gray-200";
-  }
-};
 
 // Helper function to clean HTML content and create readable excerpts
 const createCleanExcerpt = (htmlContent: string, maxLength: number = 150): string => {
@@ -92,9 +60,6 @@ const createCleanExcerpt = (htmlContent: string, maxLength: number = 150): strin
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
-
-  const categories = ["All", "Kathak", "Baker", "Enthusiastic Reader", "Dog Mom", "Techie"];
 
   // Fetch Medium RSS feed
   useEffect(() => {
@@ -178,80 +143,30 @@ export default function BlogPage() {
     fetchMediumPosts();
   }, []);
 
-  const filteredPosts = selectedCategory === "All" 
-    ? posts 
-    : posts.filter(post => post.category === selectedCategory);
-
   const featuredPost = posts.find(post => post.featured);
-  const regularPosts = filteredPosts.filter(post => !post.featured);
+  const regularPosts = posts.filter(post => !post.featured);
 
   return (
-    <main className="pt-24">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-900 via-red-800 to-red-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center">
-            {/* Fine Print() Logo */}
-            <div className="mb-8">
-              <div className="inline-block bg-teal-800 px-8 py-6 rounded-2xl shadow-2xl">
-                <h1 className="text-4xl md:text-6xl font-serif font-bold leading-tight text-amber-50 drop-shadow-lg">
-                  <span className="block">Fine</span>
-                  <span className="block">Print()</span>
-                </h1>
-              </div>
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl font-light mb-6">
-              My Medium Blog
-            </h2>
-            
-            <p className="text-xl md:text-2xl font-light max-w-3xl mx-auto">
-              Thoughts, experiences, and insights from my journey as a developer, 
-              dancer, reader, baker, and dog mom. Connecting the dots between 
-              diverse passions and technology.
-            </p>
-            <div className="mt-8">
-              <a 
-                href={MEDIUM_RSS_URL}
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-white text-red-900 px-8 py-4 text-lg font-medium hover:bg-gray-100 transition-all duration-300"
-              >
-                <ExternalLink className="w-5 h-5 mr-2" />
-                Follow on Medium
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Category Filter */}
-      <section className="py-8 bg-white border-b border-gray-200">
+    <main style={{backgroundColor: '#f7f6f0'}}>
+      {/* Newspaper Header */}
+      <section className="py-8 border-b-2 border-black" style={{backgroundColor: '#f7f6f0'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-4 justify-center">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                disabled={loading}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
-                  selectedCategory === category
-                    ? "bg-red-600 text-white shadow-lg"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                } ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="flex justify-between items-center mb-4">
+            <div className="text-sm font-serif uppercase tracking-wider">ISSUE, DECEMBER</div>
+            <div className="text-sm font-serif uppercase tracking-wider">BLOG</div>
           </div>
+          <h1 className="text-6xl md:text-8xl font-serif font-bold text-black text-center mb-4">
+            BLOG
+          </h1>
+          <div className="border-t border-black"></div>
         </div>
       </section>
 
       {/* Loading State */}
       {loading && (
-        <section className="py-20 bg-white">
+        <section className="py-20" style={{backgroundColor: '#f7f6f0'}}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-red-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-black mx-auto mb-4"></div>
             <p className="text-lg text-gray-600">Loading your blog posts from Medium...</p>
           </div>
         </section>
@@ -259,7 +174,7 @@ export default function BlogPage() {
 
       {/* No Posts State */}
       {!loading && posts.length === 0 && (
-        <section className="py-20 bg-white">
+        <section className="py-20" style={{backgroundColor: '#f7f6f0'}}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center">
               <BookOpen className="w-12 h-12 text-gray-400" />
@@ -272,7 +187,7 @@ export default function BlogPage() {
               href={MEDIUM_RSS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors"
+              className="inline-flex items-center bg-black text-white px-6 py-3 font-medium hover:bg-gray-800 transition-colors"
             >
               <ExternalLink className="w-5 h-5 mr-2" />
               Visit My Medium Profile
@@ -283,168 +198,93 @@ export default function BlogPage() {
 
       {/* Featured Article */}
       {!loading && featuredPost && (
-        <section className="py-16 bg-amber-50">
+        <section className="py-12" style={{backgroundColor: '#f7f6f0'}}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-8">
-              <span className="text-sm font-medium text-amber-800 uppercase tracking-wider">
-                FEATURED ARTICLE
-              </span>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left Column - Image */}
-              <div className="relative">
-                <div className="w-full h-96 bg-gradient-to-br from-red-200 to-red-300 rounded-2xl flex items-center justify-center overflow-hidden">
-                  <div className="text-center text-red-800">
-                    <div className="w-32 h-32 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-white text-4xl">📝</span>
-                    </div>
-                    <p className="text-2xl font-serif">Blog Post</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Right Column - Content */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Left Column - Content */}
               <div className="space-y-6">
-                <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${getCategoryColor(featuredPost.category)}`}>
-                  {getCategoryIcon(featuredPost.category)}
-                  <span className="ml-2">{featuredPost.category}</span>
+                <div className="text-sm font-serif text-gray-600">
+                  {new Date(featuredPost.publishedAt).toLocaleDateString()}
                 </div>
-                
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 leading-tight">
-                  {featuredPost.title}
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-black leading-tight">
+                  &ldquo;{featuredPost.title}&rdquo;
                 </h2>
-                
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg font-serif text-black leading-relaxed">
                   {featuredPost.excerpt}
                 </p>
-                
-                <div className="flex items-center space-x-6 text-sm text-gray-500">
-                  <div className="flex items-center space-x-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>{new Date(featuredPost.publishedAt).toLocaleDateString()}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Clock className="w-4 h-4" />
-                    <span>{featuredPost.readTime}</span>
-                  </div>
+                <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  <span>BY ESHANI PARULEKAR</span>
+                  <span>•</span>
+                  <span>{featuredPost.readTime}</span>
                 </div>
-                
                 <a 
                   href={featuredPost.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-all duration-200"
+                  className="inline-flex items-center text-black font-serif text-sm hover:underline"
                 >
-                  Read Full Article
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  Read more &gt;
                 </a>
+              </div>
+              
+              {/* Right Column - Image */}
+              <div className="relative">
+                <div className="w-full h-96 bg-gray-200 flex items-center justify-center">
+                  <div className="text-center text-gray-500">
+                    <div className="w-16 h-16 bg-gray-400 mx-auto mb-2 flex items-center justify-center">
+                      <span className="text-white text-2xl">📝</span>
+                    </div>
+                    <p className="text-sm font-serif">Featured Article</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
       )}
 
-      {/* Articles Grid */}
-      {!loading && (
-        <section className="py-16 bg-white">
+      {/* Blog Posts Grid */}
+      {!loading && posts.length > 0 && (
+        <section className="py-12" style={{backgroundColor: '#f7f6f0'}}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Left Column - Larger Articles */}
-              <div className="lg:col-span-2 space-y-8">
-                {regularPosts.slice(0, 4).map((post) => (
+            <div className="border-t border-black pt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {regularPosts.slice(0, 6).map((post) => (
                   <article key={post.id} className="group">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
                       {/* Image */}
-                      <div className="relative">
-                        <div className="w-full h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                          <div className="text-center text-gray-600">
-                            <div className="w-16 h-16 bg-gray-500 rounded-full mx-auto mb-2 flex items-center justify-center">
-                              <span className="text-white text-2xl">📄</span>
-                            </div>
-                            <p className="text-sm">Article</p>
+                      <div className="w-full h-48 bg-gray-200 flex items-center justify-center">
+                        <div className="text-center text-gray-500">
+                          <div className="w-12 h-12 bg-gray-400 mx-auto mb-2 flex items-center justify-center">
+                            <span className="text-white text-lg">📄</span>
                           </div>
+                          <p className="text-xs font-serif">Article</p>
                         </div>
                       </div>
                       
                       {/* Content */}
-                      <div className="space-y-4">
-                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${getCategoryColor(post.category)}`}>
-                          {getCategoryIcon(post.category)}
-                          <span className="ml-2">{post.category}</span>
+                      <div className="space-y-3">
+                        <div className="text-xs font-serif text-gray-600">
+                          {new Date(post.publishedAt).toLocaleDateString()}
                         </div>
-                        
-                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors duration-200 leading-tight">
-                          {post.title}
+                        <h3 className="text-lg font-serif font-bold text-black leading-tight group-hover:underline">
+                          &ldquo;{post.title}&rdquo;
                         </h3>
-                        
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-sm font-serif text-black leading-relaxed">
                           {post.excerpt}
                         </p>
-                        
-                        <div className="flex items-center space-x-4 text-sm text-gray-500">
-                          <div className="flex items-center space-x-2">
-                            <Calendar className="w-4 h-4" />
-                            <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <Clock className="w-4 h-4" />
-                            <span>{post.readTime}</span>
-                          </div>
-                        </div>
-                        
-                        <a 
-                          href={post.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-red-600 font-medium hover:text-red-700 transition-colors duration-200"
-                        >
-                          Read More
-                          <ArrowRight className="w-4 h-4 ml-1" />
-                        </a>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-              
-              {/* Right Column - Compact Articles */}
-              <div className="space-y-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">More Articles</h3>
-                {regularPosts.slice(4).map((post) => (
-                  <article key={post.id} className="group">
-                    <div className="flex space-x-4">
-                      {/* Thumbnail */}
-                      <div className="flex-shrink-0">
-                        <div className="w-20 h-20 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                          <span className="text-gray-600 text-lg">📝</span>
-                        </div>
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="flex-1 min-w-0">
-                        <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border ${getCategoryColor(post.category)} mb-2`}>
-                          {getCategoryIcon(post.category)}
-                          <span className="ml-1">{post.category}</span>
-                        </div>
-                        
-                        <h4 className="text-sm font-bold text-gray-900 group-hover:text-red-600 transition-colors duration-200 leading-tight mb-2">
-                          {post.title}
-                        </h4>
-                        
                         <div className="flex items-center space-x-3 text-xs text-gray-500">
-                          <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+                          <span>{post.category}</span>
                           <span>•</span>
                           <span>{post.readTime}</span>
                         </div>
-                        
                         <a 
                           href={post.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-red-600 text-xs font-medium hover:text-red-700 transition-colors duration-200 mt-2"
+                          className="inline-flex items-center text-black text-xs font-serif hover:underline"
                         >
-                          Read Article
-                          <ArrowRight className="w-3 h-3 ml-1" />
+                          Read more &gt;
                         </a>
                       </div>
                     </div>
@@ -456,31 +296,53 @@ export default function BlogPage() {
         </section>
       )}
 
-      {/* Newsletter Signup */}
-      <section className="py-16 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-            Stay Updated with My Latest Thoughts
-          </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Get notified when I publish new articles about technology, creativity, 
-            and the intersection of diverse passions with modern development.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border border-gray-600 bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-            />
-            <button className="bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors">
-              Subscribe
-            </button>
+      {/* Additional Articles Section */}
+      {!loading && posts.length > 0 && (
+        <section className="py-12" style={{backgroundColor: '#f7f6f0'}}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="border-t border-black pt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Left Column */}
+                <div className="space-y-6">
+                  <div className="w-full h-32 bg-gray-200 flex items-center justify-center">
+                    <div className="text-center text-gray-500">
+                      <div className="w-8 h-8 bg-gray-400 mx-auto mb-1 flex items-center justify-center">
+                        <span className="text-white text-sm">📝</span>
+                      </div>
+                      <p className="text-xs font-serif">Article</p>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-black uppercase">
+                    ADD TITLE HERE
+                  </h3>
+                  <p className="text-sm font-serif text-black leading-relaxed">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                  </p>
+                </div>
+                
+                {/* Right Column */}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-serif font-bold text-black uppercase">
+                    ADD TITLE HERE
+                  </h3>
+                  <p className="text-sm font-serif text-black leading-relaxed">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                  </p>
+                  <div className="w-full h-32 bg-gray-200 flex items-center justify-center">
+                    <div className="text-center text-gray-500">
+                      <div className="w-8 h-8 bg-gray-400 mx-auto mb-1 flex items-center justify-center">
+                        <span className="text-white text-sm">📝</span>
+                      </div>
+                      <p className="text-xs font-serif">Article</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="text-sm text-gray-400 mt-4">
-            No spam, just thoughtful content delivered to your inbox.
-          </p>
-        </div>
-      </section>
+        </section>
+      )}
+      <Footer />
     </main>
   );
 }
