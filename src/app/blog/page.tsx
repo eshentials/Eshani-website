@@ -97,14 +97,20 @@ export default function BlogPage() {
             }
             
             // Extract image from content or use default
-            let image = "/next.svg"; // Default image
+            let image = "/Fine-Print.jpeg"; // Default fallback image
             if (item.thumbnail) {
               image = item.thumbnail;
             } else if (item.content) {
-              // Try to extract image from content HTML
+              // Try to extract image from content HTML - look for various image patterns
               const imgMatch = item.content.match(/<img[^>]+src="([^"]+)"/);
               if (imgMatch) {
                 image = imgMatch[1];
+              } else {
+                // Try to find Medium's CDN images
+                const mediumImgMatch = item.content.match(/https:\/\/miro\.medium\.com\/[^"'\s]+/);
+                if (mediumImgMatch) {
+                  image = mediumImgMatch[0];
+                }
               }
             }
             
@@ -229,13 +235,21 @@ export default function BlogPage() {
               
               {/* Right Column - Image */}
               <div className="relative">
-                <div className="w-full h-96 bg-gray-200 flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <div className="w-16 h-16 bg-gray-400 mx-auto mb-2 flex items-center justify-center">
-                      <span className="text-white text-2xl">📝</span>
+                <div className="w-full h-96 bg-gray-200 flex items-center justify-center overflow-hidden">
+                  {featuredPost.image ? (
+                    <img 
+                      src={featuredPost.image} 
+                      alt={featuredPost.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
+                    />
+                  ) : (
+                    <div className="text-center text-gray-500">
+                      <div className="w-16 h-16 bg-gray-400 mx-auto mb-2 flex items-center justify-center">
+                        <span className="text-white text-2xl">📝</span>
+                      </div>
+                      <p className="text-sm font-serif">Featured Article</p>
                     </div>
-                    <p className="text-sm font-serif">Featured Article</p>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -253,13 +267,21 @@ export default function BlogPage() {
                   <article key={post.id} className="group">
                     <div className="space-y-4">
                       {/* Image */}
-                      <div className="w-full h-48 bg-gray-200 flex items-center justify-center">
-                        <div className="text-center text-gray-500">
-                          <div className="w-12 h-12 bg-gray-400 mx-auto mb-2 flex items-center justify-center">
-                            <span className="text-white text-lg">📄</span>
+                      <div className="w-full h-48 bg-gray-200 flex items-center justify-center overflow-hidden group">
+                        {post.image ? (
+                          <img 
+                            src={post.image} 
+                            alt={post.title}
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
+                          />
+                        ) : (
+                          <div className="text-center text-gray-500">
+                            <div className="w-12 h-12 bg-gray-400 mx-auto mb-2 flex items-center justify-center">
+                              <span className="text-white text-lg">📄</span>
+                            </div>
+                            <p className="text-xs font-serif">Article</p>
                           </div>
-                          <p className="text-xs font-serif">Article</p>
-                        </div>
+                        )}
                       </div>
                       
                       {/* Content */}
