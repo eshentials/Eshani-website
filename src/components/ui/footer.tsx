@@ -117,16 +117,10 @@ export function Footer() {
               <p className="text-sm font-serif text-black">
                 <span className="font-bold">PUBLISHER:</span> Eshani Parulekar
               </p>
-              <p className="text-sm font-serif text-gray-700">
-                <span className="font-bold">ESTABLISHED:</span> 2024
-              </p>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-sm font-serif text-black">
-                <span className="font-bold">CONTACT:</span> contact@eshani.dev
-              </p>
-              <p className="text-sm font-serif text-gray-700">
-                <span className="font-bold">WEBSITE:</span> www.eshani.dev
+            <p className="text-sm font-serif text-gray-700">
+                <span className="font-bold">ESTABLISHED:</span> 2005
               </p>
             </div>
           </div>
