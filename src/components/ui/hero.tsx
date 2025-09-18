@@ -1,36 +1,13 @@
 export function Hero() {
   return (
     <section
-      className="relative py-16 w-full group"
+      className="relative w-full group"
       style={{ backgroundColor: "#f7f6f0" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Main Title Section */}
-        <div className="mb-8">
-          <div className="flex justify-between items-center">
-            {/* Left side */}
-            <div className="text-sm font-serif uppercase tracking-wider">
-              ISSUE, DECEMBER
-            </div>
-
-            {/* Right side (optional, can leave empty or add date, volume, etc.) */}
-            <div></div>
-          </div>
-
-          {/* Centered Name */}
-          <h1 className="text-5xl md:text-7xl font-bold text-black mb-4 font-serif uppercase tracking-wider text-center">
-            Eshani Parulekar
-          </h1>
-
-          {/* Divider */}
-          <div className="w-full h-px bg-black mb-4"></div>
-          <div className="border-t border-black"></div>
-
-          {/* Subtitle */}
-          <h2 className="text-lg md:text-xl font-serif text-black uppercase tracking-wide text-center">
-            Student, Developer, and Creative Problem Solver
-          </h2>
-        </div>
+        {/* Divider */}
+        <div className="w-full h-px bg-black mb-8"></div>
+        <div className="border-t border-black mb-8"></div>
 
         {/* Main Content Grid - Vintage Flyer Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">

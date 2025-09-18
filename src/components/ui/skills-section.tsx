@@ -35,8 +35,8 @@ const words: Word[] = [
     text: "GOLANG", 
     category: "Programming Languages", 
     positions: [
-      { row: 5, col: 0 }, { row: 6, col: 0 }, { row: 7, col: 0 }, { row: 8, col: 0 }, 
-      { row: 9, col: 0 }, { row: 10, col: 0 }
+      { row: 6, col: 0 }, { row: 7, col: 0 }, { row: 8, col: 0 }, 
+      { row: 9, col: 0 }, { row: 10, col: 0 }, { row: 11, col: 0 }, 
     ],
     direction: 'vertical'
   },

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ExternalLink, BookOpen } from "lucide-react";
+import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
 
 interface BlogPost {
@@ -153,7 +154,9 @@ export default function BlogPage() {
   const regularPosts = posts.filter(post => !post.featured);
 
   return (
-    <main style={{backgroundColor: '#f7f6f0'}}>
+    <main className="min-h-screen flex flex-col" style={{backgroundColor: '#f7f6f0'}}>
+      <Navbar />
+      <div className="flex-grow">
       {/* Newspaper Header */}
       <section className="py-8 border-b-2 border-black" style={{backgroundColor: '#f7f6f0'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -317,6 +320,7 @@ export default function BlogPage() {
           </div>
         </section>
       )}
+      </div>
       <Footer />
     </main>
   );

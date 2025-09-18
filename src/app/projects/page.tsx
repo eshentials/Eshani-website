@@ -1,5 +1,6 @@
 "use client";
 
+import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
 import projectsData from "@/data/projects.json";
 
@@ -32,7 +33,9 @@ export default function ProjectsPage() {
   // Additional projects for the subsection
   const additionalProjects = projects.filter(p => !mainProjects.includes(p));
   return (
-    <main style={{backgroundColor: '#f7f6f0'}}>
+    <main className="min-h-screen flex flex-col" style={{backgroundColor: '#f7f6f0'}}>
+      <Navbar />
+      <div className="flex-grow">
       {/* Newspaper Header */}
       <section className="py-8" style={{backgroundColor: '#f7f6f0'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -348,67 +351,86 @@ export default function ProjectsPage() {
       </section>
 
       {/* Additional Projects Section */}
-      <section className="py-12" style={{backgroundColor: '#f7f6f0'}}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-serif font-bold text-black mb-8 text-center">
+      <section className="py-12 px-4" style={{backgroundColor: '#f7f6f0'}}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-serif font-bold text-black mb-12 text-center">
             ADDITIONAL PROJECTS
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {additionalProjects.map((project, index) => (
-              <div key={index} className="bg-white border border-black p-6 hover:shadow-lg transition-shadow group">
-                {project.image && (
-                  <div className="w-full h-48 bg-gray-100 mb-4 overflow-hidden">
-                    <img 
-                      src={project.image.replace('public/', '/')} 
-                      alt={project.title}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
-                    />
-                  </div>
-                )}
-                <h3 className="text-lg font-serif font-bold text-black mb-3">
-                  <span className="relative cursor-pointer inline-block">
-                    <span className="relative z-10">
+              <article key={index} className="group relative">
+                <div className="h-full flex flex-col">
+                  {project.image && (
+                    <div className="w-full h-48 bg-gray-100 overflow-hidden mb-4">
+                      <img 
+                        src={project.image.replace('public/', '/')} 
+                        alt={project.title}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                      />
+                    </div>
+                  )}
+                  
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start mb-2">
+                      <span className="text-xs font-mono uppercase tracking-wider text-gray-600">
+                        {project.duration}
+                      </span>
+                      <span className="text-xs font-mono text-gray-600">
+                        {project.affliatedOrganisation}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-xl font-serif font-bold text-black mb-3 leading-tight">
                       {project.title}
-                    </span>
-                    <span className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
-                  </span>
-                </h3>
-                <p className="text-sm font-serif text-gray-600 mb-2">
-                  {project.duration} • {project.affliatedOrganisation}
-                </p>
-                <p className="text-sm font-serif text-black leading-relaxed mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.techStack.map((tech, techIndex) => (
-                    <span key={techIndex} className="text-xs font-serif bg-gray-100 px-2 py-1 border border-gray-300">
-                      {tech}
-                    </span>
-                  ))}
+                    </h3>
+                    
+                    <p className="text-sm font-serif text-black leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.techStack.slice(0, 3).map((tech, techIndex) => (
+                        <span key={techIndex} className="text-xs font-mono text-gray-600">
+                          {tech}
+                        </span>
+                      ))}
+                      {project.techStack.length > 3 && (
+                        <span className="text-xs font-mono text-gray-400">+{project.techStack.length - 3} more</span>
+                      )}
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-3 pt-2 border-t border-gray-200">
+                      {project.githubLink && (
+                        <a 
+                          href={project.githubLink} 
+                          className="text-xs font-mono text-black hover:underline flex items-center"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          GitHub <span className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+                        </a>
+                      )}
+                      {project.url && (
+                        <a 
+                          href={project.url} 
+                          className="text-xs font-mono text-black hover:underline flex items-center"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Live <span className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <div className="flex space-x-4">
-                  {project.githubLink && (
-                    <a href={project.githubLink} className="text-black text-sm font-serif hover:underline">
-                      GitHub →
-                    </a>
-                  )}
-                  {project.url && (
-                    <a href={project.url} className="text-black text-sm font-serif hover:underline">
-                      Live Demo →
-                    </a>
-                  )}
-                  {project.linkedinUrl && (
-                    <a href={project.linkedinUrl} className="text-black text-sm font-serif hover:underline">
-                      LinkedIn →
-                    </a>
-                  )}
-                </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
+      </div>
       <Footer />
     </main>
   );
