@@ -1,0 +1,76 @@
+{
+    "positions": [
+      {
+        "title": "Head of Classical Department",
+        "organization": "One-o-One Dance Club, Plaksha University",
+        "duration": "AUG 2024 – PRESENT",
+        "status": "Ongoing",
+        "sections": [
+          {
+            "heading": "Event Management",
+            "description": "Organized the flagship Traditional Day cultural event by coordinating performances and logistics using structured scheduling, resulting in a smooth event experience for 200+ attendees."
+          },
+          {
+            "heading": "Leadership Impact",
+            "description": "Successfully managed cultural programming and team coordination, demonstrating strong organizational and leadership skills in a university setting."
+          }
+        ],
+        "images": {
+          "mainHeader": "/images/danceclub_main.jpg",
+          "image2": "/images/danceclub_event.jpg",
+          "image3": "/images/danceclub_team.jpg"
+        }
+      },
+      {
+        "title": "Member",
+        "organization": "LEAP AI Club, Plaksha University",
+        "duration": "Ongoing",
+        "status": "Active Member",
+        "sections": [
+          {
+            "heading": "Web Development",
+            "description": "Built the club's official website using Next.js and TailwindCSS, establishing an online presence and streamlining event communication."
+          },
+          {
+            "heading": "AI Project",
+            "description": "Developed LEAPDraw, a sketch-recognition ML system using CNNs and QuickDraw! dataset, enabling interactive AI-based doodle classification."
+          }
+        ],
+        "images": {
+          "mainHeader": "/images/leapai_main.jpg",
+          "image2": "/images/leapai_web.jpg",
+          "image3": "/images/leapai_project.jpg"
+        }
+      },
+      {
+        "title": "Co-Founder",
+        "organization": "Owlett",
+        "duration": "JAN 2019 – FEB 2020; JAN 2024 – MAY 2025",
+        "status": "Two Phases",
+        "sections": [
+          {
+            "heading": "Platform Development",
+            "description": "Created a youth-focused platform by simplifying complex articles in politics, economics, business, and social issues using accessible language and design, resulting in 350+ articles and 20k+ views."
+          },
+          {
+            "heading": "Competition Success",
+            "description": "Pitched Owlett as a student-led initiative in ENpower's India Future Tycoons Season 1, achieving second runner-up among 100+ teams."
+          },
+          {
+            "heading": "Global Recognition",
+            "description": "Presented at the UNSDG Global Compact Network Summit in Mumbai and was felicitated for the same."
+          }
+        ],
+        "impact": {
+          "content": "350+ articles, 20k+ views, 2nd runner-up in competition",
+          "recognition": "UNSDG Global Compact Network Summit"
+        },
+        "images": {
+          "mainHeader": "/images/owlett_main.jpg",
+          "image2": "/images/owlett_pitch.jpg",
+          "image3": "/images/owlett_global.jpg"
+        }
+      }
+    ]
+  }
+  

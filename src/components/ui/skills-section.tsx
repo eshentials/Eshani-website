@@ -73,8 +73,7 @@ const words: Word[] = [
     text: "NODEJS", 
     category: "Frameworks & Libraries", 
     positions: [
-      { row: 11, col: 0 }, { row: 12, col: 1 }, { row: 13, col: 2 }, { row: 14, col: 3 }, 
-      { row: 15, col: 4 }
+      { row: 10, col: 1 }, { row: 11, col: 2 }, { row: 12, col: 3 }, { row: 13, col: 4}, { row: 14, col: 5 }, { row: 15, col: 6 },
     ],
     direction: 'diagonal'
   },
@@ -119,15 +118,15 @@ const words: Word[] = [
     direction: 'horizontal'
   },
   
-  // Cybersecurity & Networking
   { 
     text: "KALI", 
     category: "Cybersecurity & Networking", 
     positions: [
-      { row: 0, col: 0 }, { row: 1, col: 0 }, { row: 2, col: 0 }, { row: 3, col: 0 }
+      { row: 11, col: 19 }, { row: 12, col: 19 }, { row: 13, col: 19 }, { row: 14, col: 19 }
     ],
     direction: 'vertical'
   }
+  
 ];
 
 const categories = [
