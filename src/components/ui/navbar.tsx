@@ -11,7 +11,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="bg-white sticky top-0 z-50 border-b-2 border-black">
+    <header className="bg-[#f7f6f0] border-b-2 border-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newspaper Header */}
         <div className="py-4 border-b border-black flex flex-col items-center">
@@ -21,22 +21,10 @@ export function Navbar() {
             <div className="font-bold">FREE</div>
           </div>
           
-          {/* Main Title with Side Navigation */}
-          <div className="w-full flex items-center justify-between py-2">
-            {/* Left Navigation */}
-            <nav className="hidden md:block w-1/4">
-              <ul className="space-y-1 text-right pr-4">
-                <li className="hover:underline">
-                  <Link href="/projects" className="font-serif">PROJECTS</Link>
-                </li>
-                <li className="hover:underline">
-                  <Link href="/blog" className="font-serif">BLOG</Link>
-                </li>
-              </ul>
-            </nav>
-            
+          {/* Main Title with Navigation */}
+          <div className="w-full flex items-center justify-center relative py-2">
             {/* Main Title */}
-            <div className="text-center flex-grow">
+            <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold font-serif tracking-tight">
                 <Link href="/" className="hover:opacity-90 transition-opacity">
                   ESHANI PARULEKAR
@@ -47,9 +35,15 @@ export function Navbar() {
               </div>
             </div>
             
-            {/* Right Navigation */}
-            <nav className="hidden md:block w-1/4">
-              <ul className="space-y-1 text-left pl-4">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:block absolute right-0">
+              <ul className="flex flex-col space-y-0.5 text-right">
+                <li className="hover:underline">
+                  <Link href="/projects" className="font-serif">PROJECTS</Link>
+                </li>
+                <li className="hover:underline">
+                  <Link href="/blog" className="font-serif">BLOG</Link>
+                </li>
                 <li className="hover:underline">
                   <Link href="/contact" className="font-serif">CONTACT</Link>
                 </li>
@@ -62,14 +56,19 @@ export function Navbar() {
           
           {/* Mobile Navigation */}
           <nav className="md:hidden w-full mt-4">
-            <ul className="flex justify-center space-x-6 text-sm">
-              {navLinks.map((link) => (
-                <li key={link.name} className="hover:underline">
-                  <Link href={link.href} className="font-serif">
-                    {link.name.toUpperCase()}
-                  </Link>
-                </li>
-              ))}
+            <ul className="flex flex-col items-center space-y-1 text-sm">
+              <li className="hover:underline">
+                <Link href="/projects" className="font-serif">PROJECTS</Link>
+              </li>
+              <li className="hover:underline">
+                <Link href="/blog" className="font-serif">BLOG</Link>
+              </li>
+              <li className="hover:underline">
+                <Link href="/contact" className="font-serif">CONTACT</Link>
+              </li>
+              <li className="hover:underline">
+                <Link href="/about" className="font-serif">ABOUT</Link>
+              </li>
             </ul>
           </nav>
         </div>

@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { ExternalLink, BookOpen } from "lucide-react";
-import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
+import Link from "next/link";
 
 interface BlogPost {
   id: string;
@@ -155,7 +155,6 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen flex flex-col" style={{backgroundColor: '#f7f6f0'}}>
-      <Navbar />
       <div className="flex-grow">
       {/* Newspaper Header */}
       <section className="py-8 border-b-2 border-black" style={{backgroundColor: '#f7f6f0'}}>
@@ -164,9 +163,32 @@ export default function BlogPage() {
             <div className="text-sm font-serif uppercase tracking-wider">ISSUE, DECEMBER</div>
             <div className="text-sm font-serif uppercase tracking-wider">BLOG</div>
           </div>
-          <h1 className="text-6xl md:text-6xl font-serif font-bold text-black text-center mb-4">
-            BLOG
-          </h1>
+          <div className="flex items-center justify-center relative">
+            <h1 className="text-6xl md:text-6xl font-serif font-bold text-black text-center mb-4">
+              BLOG
+            </h1>
+            <nav className="hidden md:block absolute right-0">
+              <div className="md:hidden w-full mt-4">
+                <ul className="flex justify-center space-x-6 text-sm">
+                  <li className="hover:underline">
+                    <Link href="/" className="font-serif">HOME</Link>
+                  </li>
+                  <li className="hover:underline">
+                    <Link href="/projects" className="font-serif">PROJECTS</Link>
+                  </li>
+                  <li className="hover:underline">
+                    <Link href="/blog" className="font-serif">BLOG</Link>
+                  </li>
+                  <li className="hover:underline">
+                    <Link href="/contact" className="font-serif">CONTACT</Link>
+                  </li>
+                  <li className="hover:underline">
+                    <Link href="/about" className="font-serif">ABOUT</Link>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
           <div className="border-t border-black"></div>
         </div>
       </section>

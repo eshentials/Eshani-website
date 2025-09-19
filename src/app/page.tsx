@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/ui/navbar";
 import { Hero } from "@/components/ui/hero";
 import { SkillsSection } from "@/components/ui/skills-section";
 import { ProjectsSection } from "@/components/ui/projects-section";
@@ -9,6 +10,7 @@ import { Footer } from "@/components/ui/footer";
 export default function Home() {
   return (
     <main>
+      <Navbar />
       <Hero />
       <ProjectsSection />
       <CollageSection />

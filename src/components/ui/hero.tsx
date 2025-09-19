@@ -12,8 +12,8 @@ export function Hero() {
         {/* Main Content Grid - Vintage Flyer Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Left Column - Author Photo (Smaller) */}
-          <div className="lg:col-span-2">
-            <div className="w-80 h-80 mx-auto bg-white border-2 border-black flex items-center justify-center relative overflow-hidden">
+          <div className="lg:col-span-2 flex items-center justify-center">
+            <div className="w-96 h-96 mx-auto bg-white border-2 border-black flex items-center justify-center relative overflow-hidden">
               <img
                 src="/pfp.png"
                 alt="Eshani Parulekar"
