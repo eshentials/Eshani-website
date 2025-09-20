@@ -1,6 +1,6 @@
 "use client";
 
-import { Navbar } from "@/components/ui/navbar";
+import Link from "next/link";
 import { Footer } from "@/components/ui/footer";
 import projectsData from "@/data/projects.json";
 
@@ -18,6 +18,13 @@ interface Project {
 }
 
 export default function ProjectsPage() {
+  const navLinks = [
+    { name: "About", href: "/" },
+    { name: "Projects", href: "/projects" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" }
+  ];
+  
   const projects: Project[] = projectsData.projects;
   
   // Main projects for the grid
@@ -33,22 +40,61 @@ export default function ProjectsPage() {
   // Additional projects for the subsection
   const additionalProjects = projects.filter(p => !mainProjects.includes(p));
   return (
-    <main className="min-h-screen flex flex-col" style={{backgroundColor: '#f7f6f0'}}>
-      <Navbar />
-      <div className="flex-grow">
-      {/* Newspaper Header */}
-      <section className="py-8" style={{backgroundColor: '#f7f6f0'}}>
+    <main className="min-h-screen" style={{ backgroundColor: "#f7f6f0" }}>
+      {/* Projects Header with Navigation */}
+      <header className="bg-[#f7f6f0] border-b-2 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-4">
-            <div className="text-sm font-serif uppercase tracking-wider">ISSUE, DECEMBER</div>
-            <div className="text-sm font-serif uppercase tracking-wider">PROJECTS</div>
+          <div className="py-4 border-b border-black flex flex-col items-center">
+            {/* Top Line - Date and Price */}
+            <div className="w-full flex justify-between items-center text-xs font-serif uppercase tracking-wider mb-2">
+              <div>ISSUE, DECEMBER 2025</div>
+              <div className="font-bold">FREE</div>
+            </div>
+            
+            {/* Main Title with Navigation */}
+            <div className="w-full flex items-center justify-center relative py-2">
+              {/* Main Title */}
+              <div className="text-center">
+                <h1 className="text-4xl md:text-6xl font-bold font-serif tracking-tight">
+                  <Link href="/" className="hover:opacity-90 transition-opacity">
+                    PROJECTS
+                  </Link>
+                </h1>
+                <div className="text-sm md:text-base font-serif mt-1">
+                  My Work & Contributions
+                </div>
+              </div>
+              
+              {/* Desktop Navigation */}
+              <nav className="hidden md:block absolute right-0">
+                <ul className="flex flex-col space-y-0.5 text-right">
+                  {navLinks.map((link) => (
+                    <li key={link.name} className="hover:underline">
+                      <Link href={link.href} className="font-serif">
+                        {link.name.toUpperCase()}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            {/* Mobile Navigation */}
+            <nav className="md:hidden w-full mt-4">
+              <ul className="flex flex-wrap justify-center space-x-6 text-sm">
+                {navLinks.map((link) => (
+                  <li key={link.name} className="hover:underline">
+                    <Link href={link.href} className="font-serif">
+                      {link.name.toUpperCase()}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
-          <h1 className="text-2xl md:text-3xl font-serif font-bold text-black text-center mb-4">
-            PROJECTS
-          </h1>
-          <div className="border-t border-black"></div>
         </div>
-      </section>
+      </header>
+      <div className="flex-grow">
 
       {/* Projects Grid - Main Projects */}
       <section className="py-12" style={{backgroundColor: '#f7f6f0'}}>
@@ -351,11 +397,8 @@ export default function ProjectsPage() {
       </section>
 
       {/* Additional Projects Section */}
-      <section className="py-12 px-4" style={{backgroundColor: '#f7f6f0'}}>
+      <section className="pt-4 pb-12 px-4" style={{backgroundColor: '#f7f6f0'}}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-serif font-bold text-black mb-12 text-center">
-            ADDITIONAL PROJECTS
-          </h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {additionalProjects.map((project, index) => (

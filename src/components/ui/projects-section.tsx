@@ -26,18 +26,18 @@ export function ProjectsSection() {
     allProjects.find(p => p.title.includes("Dark Pattern"))
   ].filter(Boolean) as Project[];
   return (
-    <section className="py-16" style={{backgroundColor: '#f7f6f0'}}>
+    <section className="py-8" style={{backgroundColor: '#f7f6f0'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Four Column Layout - All Projects in One Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
           {featuredProjects.map((project, index) => {
             const isImageOnTop = index % 2 === 0; // Alternate: even indices have image on top
             
             return (
-              <div key={index} className="bg-[#f7f6f0] min-h-[350px] flex flex-col group">
+              <div key={index} className="bg-[#f7f6f0] min-h-[360px] flex flex-col group">
                 {isImageOnTop && (
                   /* Project Image - Top */
-                  <div className="w-full h-64 bg-gray-200 mb-6 overflow-hidden">
+                  <div className="w-full h-52 bg-gray-200 mb-3 overflow-hidden">
                     {project.image ? (
                       <img 
                         src={project.image.replace('public/', '/')} 
@@ -57,7 +57,7 @@ export function ProjectsSection() {
                 )}
                 
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-black mb-4 font-serif leading-tight relative group">
+                <h3 className="text-xl font-bold text-black mb-2 font-serif leading-tight relative group">
                   {project.title.toUpperCase().replace(/\s+/g, '\n').split('\n').map((line, lineIndex) => (
                     <div key={lineIndex} className="block">
                       {line.split(' ').map((word, wordIndex) => (
@@ -75,10 +75,10 @@ export function ProjectsSection() {
                   ))}
                 </h3>
                 <div className="w-full h-px bg-black mb-4"></div>
-                <p className="text-sm text-gray-600 font-serif mb-4">{project.duration}</p>
+                <p className="text-xs text-gray-600 font-serif mb-2">{project.duration}</p>
                 
                 {/* Article Text */}
-                <div className="space-y-4 text-sm leading-relaxed mb-6 flex-grow">
+                <div className="space-y-2 text-xs leading-snug mb-3 flex-grow line-clamp-5">
                   <p className="font-serif">
                     {project.description}
                   </p>
@@ -90,33 +90,19 @@ export function ProjectsSection() {
                   </p>
                 </div>
                 
-                {/* Call to Action Button */}
-                <div className="space-y-2 mb-4 mt-auto">
-                  {project.githubLink && (
-                    <a 
-                      href={project.githubLink} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block bg-gray-800 text-white px-6 py-2 text-sm font-medium hover:bg-gray-900 transition-colors w-full text-center"
-                    >
-                      View GitHub &gt;&gt;
-                    </a>
-                  )}
-                  {project.url && (
-                    <a 
-                      href={project.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block bg-gray-600 text-white px-6 py-2 text-sm font-medium hover:bg-gray-700 transition-colors w-full text-center"
-                    >
-                      Live Demo &gt;&gt;
-                    </a>
-                  )}
+                {/* Continued on page link */}
+                <div className="mb-4 mt-auto text-right">
+                  <a 
+                    href="/projects" 
+                    className="text-sm font-serif italic text-gray-600 hover:underline"
+                  >
+                    continued on page 3 &gt;&gt;
+                  </a>
                 </div>
                 
                 {!isImageOnTop && (
                   /* Project Image - Bottom */
-                  <div className="w-full h-48 bg-gray-200 mb-4 overflow-hidden">
+                  <div className="w-full h-40 bg-gray-200 mt-2 overflow-hidden">
                     {project.image ? (
                       <img 
                         src={project.image.replace('public/', '/')} 

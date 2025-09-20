@@ -61,6 +61,13 @@ const createCleanExcerpt = (htmlContent: string, maxLength: number = 150): strin
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  
+  const navLinks = [
+    { name: "About", href: "/" },
+    { name: "Projects", href: "/projects" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" }
+  ];
 
   // Fetch Medium RSS feed
   useEffect(() => {
@@ -154,51 +161,67 @@ export default function BlogPage() {
   const regularPosts = posts.filter(post => !post.featured);
 
   return (
-    <main className="min-h-screen flex flex-col" style={{backgroundColor: '#f7f6f0'}}>
-      <div className="flex-grow">
-      {/* Newspaper Header */}
-      <section className="py-8 border-b-2 border-black" style={{backgroundColor: '#f7f6f0'}}>
+    <main className="min-h-screen" style={{backgroundColor: '#f7f6f0'}}>
+      {/* Blog Header with Navigation */}
+      <header className="bg-[#f7f6f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-4">
-            <div className="text-sm font-serif uppercase tracking-wider">ISSUE, DECEMBER</div>
-            <div className="text-sm font-serif uppercase tracking-wider">BLOG</div>
-          </div>
-          <div className="flex items-center justify-center relative">
-            <h1 className="text-6xl md:text-6xl font-serif font-bold text-black text-center mb-4">
-              BLOG
-            </h1>
-            <nav className="hidden md:block absolute right-0">
-              <div className="md:hidden w-full mt-4">
-                <ul className="flex justify-center space-x-6 text-sm">
-                  <li className="hover:underline">
-                    <Link href="/" className="font-serif">HOME</Link>
-                  </li>
-                  <li className="hover:underline">
-                    <Link href="/projects" className="font-serif">PROJECTS</Link>
-                  </li>
-                  <li className="hover:underline">
-                    <Link href="/blog" className="font-serif">BLOG</Link>
-                  </li>
-                  <li className="hover:underline">
-                    <Link href="/contact" className="font-serif">CONTACT</Link>
-                  </li>
-                  <li className="hover:underline">
-                    <Link href="/about" className="font-serif">ABOUT</Link>
-                  </li>
-                </ul>
+          <div className="py-4 flex flex-col items-center">
+            {/* Top Line - Date and Price */}
+            <div className="w-full flex justify-between items-center text-xs font-serif uppercase tracking-wider mb-2">
+              <div>ISSUE, DECEMBER 2025</div>
+              <div className="font-bold">FREE</div>
+            </div>
+            
+            {/* Main Title with Navigation */}
+            <div className="w-full flex items-center justify-center relative py-2">
+              {/* Main Title */}
+              <div className="text-center">
+                <h1 className="text-4xl md:text-6xl font-bold font-serif tracking-tight">
+                  <Link href="/" className="hover:opacity-90 transition-opacity">
+                     BLOG
+                  </Link>
+                </h1>
+                <div className="text-sm md:text-base font-serif mt-1">
+                  Thoughts, Stories and Ideas
+                </div>
               </div>
+              
+              {/* Desktop Navigation */}
+              <nav className="hidden md:block absolute right-0">
+                <ul className="flex flex-col space-y-0.5 text-right">
+                  {navLinks.map((link) => (
+                    <li key={link.name} className="hover:underline">
+                      <Link href={link.href} className="font-serif">
+                        {link.name.toUpperCase()}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            {/* Mobile Navigation */}
+            <nav className="md:hidden w-full mt-4">
+              <ul className="flex flex-wrap justify-center space-x-6 text-sm">
+                {navLinks.map((link) => (
+                  <li key={link.name} className="hover:underline">
+                    <Link href={link.href} className="font-serif">
+                      {link.name.toUpperCase()}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </nav>
           </div>
-          <div className="border-t border-black"></div>
         </div>
-      </section>
-
+      </header>
+      <div className="flex-grow">
       {/* Loading State */}
       {loading && (
-        <section className="py-20" style={{backgroundColor: '#f7f6f0'}}>
+        <section className="pt-4 pb-8" style={{backgroundColor: '#f7f6f0'}}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-black mx-auto mb-4"></div>
-            <p className="text-lg text-gray-600">Loading your blog posts from Medium...</p>
+            <p className="text-lg text-gray-600 no-underline">Loading your blog posts from Medium...</p>
           </div>
         </section>
       )}
@@ -227,9 +250,13 @@ export default function BlogPage() {
         </section>
       )}
 
+      
+
       {/* Featured Article */}
       {!loading && featuredPost && (
         <section className="py-12" style={{backgroundColor: '#f7f6f0'}}>
+           <div className="w-full h-px bg-black mb-8"></div>
+           <div className="border-t border-black mb-8"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Left Column - Content */}
